@@ -13,7 +13,7 @@
 //
 // Send "my bonny is over ...." message to HS wait 10 seconds and delete message.
 // Same for next HSs.
-// HSs: 4021 4020 4013 4004 4011 4015
+// HSs: 4004,4013,402,4021
 // Loop
 // 
 //
@@ -25,34 +25,13 @@ WAIT: 1
 STATUS:
 WAIT: 1
 // next 4021
-S_MSG_FILE:4021|4021_1|tst_msg_my_bonny.json|
-WAIT: 10
-D_MSG:4021|4021_1|
-WAIT: 10
-// next 4020
-S_MSG_FILE:4020|4020_1|tst_msg_my_bonny.json|
-WAIT: 10
-D_MSG:4020|4020_1|
-WAIT: 10
-// next 4013
-S_MSG_FILE:4013|4013_1|tst_msg_my_bonny.json|
-WAIT: 10
-D_MSG:4013|4013_1|
-WAIT: 10
-// next 4004
-S_MSG_FILE:4004|4004_1|tst_msg_my_bonny.json|
-WAIT: 10
-D_MSG:4004|4004_1|
-WAIT: 10
-// next 4011
-S_MSG_FILE:4011|4011_1|tst_msg_my_bonny.json|
-WAIT: 10
-D_MSG:4011|4011_1|
-WAIT: 10
-// next 4015
-S_MSG_FILE:4015|4015_1|tst_msg_my_bonny.json|
-WAIT: 10
-D_MSG:4015|4015_1|
-WAIT: 10
+S_MSG_FILE:4021|4021_0|./sce/msg/tst_msg_my_bonny.json|
+WAIT: 1
+END:
+
+
+
 RESTART:
+
+
 

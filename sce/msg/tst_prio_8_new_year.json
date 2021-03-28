@@ -7,38 +7,29 @@
             "server_msg_status":"new",
             "prio":"8",
             "title":{
-                "text":"My Title"
+                "text":"New Year"
             },
             "status_icon":"ico_accept",
             "status_text":"accept",
             "deletable":"no",
             "ttl":"600",
             "alert_info":"msg_melody_high",
-            "body_starter":"Positioning",
+            "body_starter":"thenew year ...",
             "msg_icon":{
-                "name":"3a"
+                "name":"3b"
             },
             "body":[
                 {
                     "msg_icon":{
-                        "name":"3B"
+                        "name":"3b"
                     }
                 },
                 {
                     "paragraph":{
-                        "text":"Confirm Your position hghjh",
-                        "blink":"no",
-                        "underline":"yes",
-                        "bold":"yes",
-                        "align":"left"
-                    }
-                },
-                {
-                    "paragraph":{
-                        "text":"Kitchen,\nEntry,\nMeeting Room",
+                        "text":"the year is new, most wishes old, and have been told before, yet hope dies last, and so, my friends, let s have a blast, offer a toast, to all times past, and a hearty cheer, to the incoming year!",
                         "blink":"no",
                         "underline":"no",
-                        "bold":"no",
+                        "bold":"yes",
                         "align":"left"
                     }
                 }
@@ -47,19 +38,19 @@
                 {
                     "option_id":"option_id_1",
                     "reply":{
-                        "text":"Kitchen"
+                        "text":"chers"
                     }
                 },
                 {
                     "option_id":"option_id_2"
                     ,"reply":{
-                        "text":"Entry"
+                        "text":"no"
                     }
                 },
                 {
                     "option_id":"option_id_3",
                     "reply":{
-                        "text":"Meeting Room"
+                        "text":"later"
                     }
                 }
 

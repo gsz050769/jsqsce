@@ -1,3 +1,4 @@
 # ignore objetcs
 *.o
-
+out/*
+.vscode

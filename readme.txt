@@ -29,6 +29,8 @@
 //                  sleep for <seconds>
 //   RESTART:    = start script again   
 //                  restart script
+//   LOG:        = <log  text> 
+//                 log text to be printed to console output
 //   END:        = end scenrio here
 //                  end scenario
 //
@@ -53,7 +55,6 @@
 //
 // 
 // Prerequisits: mosquitto installed on that host, developed with
-//               mosquitto
 //               mosquitto version 1.4.8 (build date 2019-08-14 10:21:04+0200)
 //
 // API answers:

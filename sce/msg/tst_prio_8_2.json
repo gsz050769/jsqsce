@@ -5,40 +5,34 @@
         "sip_id":"x_set_by_script_x",
         "msg":{
             "server_msg_status":"new",
-            "prio":"8",
+            "prio":"7",
             "title":{
-                "text":"My Title"
+                "text":"Coffee"
             },
             "status_icon":"ico_accept",
             "status_text":"accept",
             "deletable":"no",
             "ttl":"600",
             "alert_info":"msg_melody_high",
-            "body_starter":"Positioning",
+            "body_starter":"A cup of coffee",
             "msg_icon":{
-                "name":"3a"
+                "name":"3b"
             },
             "body":[
                 {
                     "msg_icon":{
-                        "name":"3B"
+                        "name":"3b"
                     }
                 },
+
+
+
                 {
                     "paragraph":{
-                        "text":"Confirm Your position hghjh",
-                        "blink":"no",
-                        "underline":"yes",
-                        "bold":"yes",
-                        "align":"left"
-                    }
-                },
-                {
-                    "paragraph":{
-                        "text":"Kitchen,\nEntry,\nMeeting Room",
+                        "text":"A cup of coffee\nand only for me\nthat's my daily procession\nwithin a five minute session",
                         "blink":"no",
                         "underline":"no",
-                        "bold":"no",
+                        "bold":"yes",
                         "align":"left"
                     }
                 }
@@ -47,19 +41,19 @@
                 {
                     "option_id":"option_id_1",
                     "reply":{
-                        "text":"Kitchen"
+                        "text":"Now"
                     }
                 },
                 {
                     "option_id":"option_id_2"
                     ,"reply":{
-                        "text":"Entry"
+                        "text":"Later"
                     }
                 },
                 {
                     "option_id":"option_id_3",
                     "reply":{
-                        "text":"Meeting Room"
+                        "text":"No"
                     }
                 }
 

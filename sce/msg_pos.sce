@@ -12,9 +12,11 @@
 // 
 WAIT: 1
 STATUS:
-WAIT: 1
-S_MSG_FILE:4021|4021_1|tst_msg_position.json|
-WAIT: 1
-POS_DECT:4021|
+WAIT: 5
+D_MSG:4021|4021_1|
+WAIT: 5
+S_MSG_FILE:4021|4021_1|./sce/msg/tst_msg_position.json|
+WAIT: 5
+D_MSG:4021|4021_1|
 WAIT: 100
 END:

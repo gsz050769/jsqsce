@@ -16,12 +16,12 @@
             "alert_info":"msg_melody_high",
             "body_starter":"My Bonnie is ....",
             "msg_icon":{
-                "name":"information"
+                "name":"3c"
             },
             "body":[
                 {
                     "msg_icon":{
-                        "name":"information"
+                        "name":"40"
                     }
                 },
                 {

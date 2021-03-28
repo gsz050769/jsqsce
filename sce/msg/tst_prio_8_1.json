@@ -7,7 +7,7 @@
             "server_msg_status":"new",
             "prio":"8",
             "title":{
-                "text":"My Title"
+                "text":"Message 1"
             },
             "status_icon":"ico_accept",
             "status_text":"accept",
@@ -21,12 +21,12 @@
             "body":[
                 {
                     "msg_icon":{
-                        "name":"3B"
+                        "name":"3a"
                     }
                 },
                 {
                     "paragraph":{
-                        "text":"Confirm Your position hghjh",
+                        "text":"Prio 8 message 1: some longer test to check how long the message can be",
                         "blink":"no",
                         "underline":"yes",
                         "bold":"yes",
@@ -35,7 +35,7 @@
                 },
                 {
                     "paragraph":{
-                        "text":"Kitchen,\nEntry,\nMeeting Room",
+                        "text":"This text is only shown in detailed view",
                         "blink":"no",
                         "underline":"no",
                         "bold":"no",
@@ -47,19 +47,19 @@
                 {
                     "option_id":"option_id_1",
                     "reply":{
-                        "text":"Kitchen"
+                        "text":"Msg1SK1"
                     }
                 },
                 {
                     "option_id":"option_id_2"
                     ,"reply":{
-                        "text":"Entry"
+                        "text":"Msg1SK2"
                     }
                 },
                 {
                     "option_id":"option_id_3",
                     "reply":{
-                        "text":"Meeting Room"
+                        "text":"Msg1SK3"
                     }
                 }
 

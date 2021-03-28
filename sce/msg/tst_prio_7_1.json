@@ -5,9 +5,9 @@
         "sip_id":"x_set_by_script_x",
         "msg":{
             "server_msg_status":"new",
-            "prio":"8",
+            "prio":"7",
             "title":{
-                "text":"My Title"
+                "text":"Test"
             },
             "status_icon":"ico_accept",
             "status_text":"accept",
@@ -21,12 +21,12 @@
             "body":[
                 {
                     "msg_icon":{
-                        "name":"3B"
+                        "name":"3E"
                     }
                 },
                 {
                     "paragraph":{
-                        "text":"Confirm Your position hghjh",
+                        "text":"Prio 7 bbbz cccz dddz eezz fffz gggz hhhz kkkz jkjlkjljlkjlkj",
                         "blink":"no",
                         "underline":"yes",
                         "bold":"yes",
@@ -53,7 +53,7 @@
                 {
                     "option_id":"option_id_2"
                     ,"reply":{
-                        "text":"Entry"
+                        "text":"Enntry"
                     }
                 },
                 {

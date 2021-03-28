@@ -7,6 +7,7 @@
 //
 // *********************************************************************************************
 
+
 //
 // includes
 //
@@ -27,8 +28,8 @@
 //
 static void * mqtt_sub_res(void * arg);
 static ljs* msg_create_fromfile(int msgidx, char * sipid,char * ammsgid,char * msgfile);
-static ljs*  msg_hs_template_set_msg(void);
-static ljs*  msg_hs_template_del_msg(void);
+static ljs* msg_hs_template_set_msg(void);
+static ljs* msg_hs_template_del_msg(void);
 static void msg_hs_mod(ljs* js,int idx ,char *sipid,char *msgid,char *text,char *prio,char *ttl);
 static void msg_send(ljs* ljs_out, char *topic);
 static void status_send(void);
@@ -124,7 +125,6 @@ int main(int argc, const char *argv[])
             printf("S_MSG: %s",token?token:"");
             if (token && (sipid=strtok(token,"|")))
             {
-                
                 if (ammsgid=strtok(NULL,"|"))
                 {
                      if (prio=strtok(NULL,"|"))
@@ -195,6 +195,13 @@ int main(int argc, const char *argv[])
             token=strtok(NULL,":");
             pos_dect_send(token,msgidx);
         }
+        if (token && (strcmp(token,"LOG")==0))
+        {
+            token=strtok(NULL,":");
+            printf("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
+            printf("LOG: %s\n",token);
+            printf("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
+        }
     }
     //
     // clean resources
@@ -204,8 +211,9 @@ int main(int argc, const char *argv[])
 }
 
 
+
 // ***************************************************************************************
-//
+// Thread: mqqt_subscribe to all topics with destination as1
 //
 //
 // ***************************************************************************************
@@ -229,9 +237,8 @@ static void * mqtt_sub_res(void * arg)
 }
 
 // ***************************************************************************************
-//
-//
-//
+// create mosquitto api message from file. msgidx and sipid will be exchanged by 
+// given parameters.
 // ***************************************************************************************
 static ljs* msg_create_fromfile(int msgidx, char * sipid,char * ammsgid,char * msgfile)
 {
@@ -265,118 +272,108 @@ static ljs* msg_create_fromfile(int msgidx, char * sipid,char * ammsgid,char * m
             js=ljs_add_parse(string);
             if(!ljs_add_parse_ok(&idx,&info))
             {
-                ljs_add_string(js,"msgId:ljsType_string",msg_idx);
-                ljs_add_string(js,"payload:ljsType_object/sip_id:ljsType_string",sipid);
-                ljs_add_string(js,"payload:ljsType_object/amsgId:ljsType_string",ammsgid);
+                ljs_add_string(js,"msgId:STR",msg_idx);
+                ljs_add_string(js,"payload:OBJ/sip_id:STR",sipid);
+                ljs_add_string(js,"payload:OBJ/amsgId:STR",ammsgid);
             }
             else{
                 printf("%s parsing error ",__FUNCTION__);
             }
-            //ljs_print(js,ljsFormat_pretty);
         }
         free(string);
     }
-    //printf("%s js available %s\n",__FUNCTION__,js!=0?"yes":"No");
     return js;
 }
 
 // ***************************************************************************************
-//
-//
-//
+// create mosquitto api messaging setMsg default message 
 // ***************************************************************************************
 static ljs*  msg_hs_template_set_msg(void)
 {
     ljs * template = NULL;
 
 	template = ljs_init();
-	ljs_add_string(template,"msgId:ljsType_string","xxxxx");
-    ljs_add_string(template,"payload:ljsType_object/amsgId:ljsType_string","xxxxxxxxx");
-	ljs_add_string(template,"payload:ljsType_object/sip_id:ljsType_string","xxxxx");
-	ljs_add_string(template,"payload:ljsType_object/msg:ljsType_object/server_msg_status:ljsType_string","new");
-    ljs_add_string(template,"payload:ljsType_object/msg:ljsType_object/prio:ljsType_string","6");
-    ljs_add_string(template,"payload:ljsType_object/msg:ljsType_object/title:ljsType_object/text:ljsType_string","Title");
-	ljs_add_string(template,"payload:ljsType_object/msg:ljsType_object/status_icon:ljsType_string","ico_accept");
-	ljs_add_string(template,"payload:ljsType_object/msg:ljsType_object/status_text:ljsType_string","accept");
-	ljs_add_string(template,"payload:ljsType_object/msg:ljsType_object/deletable:ljsType_string","true");
-	ljs_add_string(template,"payload:ljsType_object/msg:ljsType_object/ttl:ljsType_string","1039");
-    ljs_add_string(template,"payload:ljsType_object/msg:ljsType_object/alert_info:ljsType_string","msg_melody_high");
-    ljs_add_string(template,"payload:ljsType_object/msg:ljsType_object/body_starter:ljsType_string","appetizer");
-    ljs_add_string(template,"payload:ljsType_object/msg:ljsType_object/deletable:ljsType_string","no");
-	ljs_add_string(template,"payload:ljsType_object/msg:ljsType_object/msg_icon:ljsType_object/name:ljsType_string","exclamation_mark");
-	ljs_add_array(template, "payload:ljsType_object/msg:ljsType_object/body:ljsType_array",NULL);
-	ljs_add_array(template, "payload:ljsType_object/msg:ljsType_object/reply_options:ljsType_array",NULL);
+	ljs_add_string(template,"msgId:STR","xxxxx");
+    ljs_add_string(template,"payload:OBJ/amsgId:STR","xxxxxxxxx");
+	ljs_add_string(template,"payload:OBJ/sip_id:STR","xxxxx");
+	ljs_add_string(template,"payload:OBJ/msg:OBJ/server_msg_status:STR","new");
+    ljs_add_string(template,"payload:OBJ/msg:OBJ/prio:STR","6");
+    ljs_add_string(template,"payload:OBJ/msg:OBJ/title:OBJ/text:STR","Title");
+	ljs_add_string(template,"payload:OBJ/msg:OBJ/status_icon:STR","3e");
+	ljs_add_string(template,"payload:OBJ/msg:OBJ/status_text:STR","accept");
+	ljs_add_string(template,"payload:OBJ/msg:OBJ/deletable:STR","true");
+	ljs_add_string(template,"payload:OBJ/msg:OBJ/ttl:STR","1039");
+    ljs_add_string(template,"payload:OBJ/msg:OBJ/alert_info:STR","msg_melody_high");
+    ljs_add_string(template,"payload:OBJ/msg:OBJ/body_starter:STR","appetizer");
+    ljs_add_string(template,"payload:OBJ/msg:OBJ/deletable:STR","no");
+	ljs_add_string(template,"payload:OBJ/msg:OBJ/msg_icon:OBJ/name:STR","3e");
+	ljs_add_array(template, "payload:OBJ/msg:OBJ/body:ARR",NULL);
+	ljs_add_array(template, "payload:OBJ/msg:OBJ/reply_options:ARR",NULL);
 
 	
 	ljs *body=NULL; 
-	ljs_read_array(template,"payload:ljsType_object/msg:ljsType_object/body:ljsType_array",&body);
-	ljs_add_string(body,"0:ljsType_object/msg_icon:ljsType_object/name:ljsType_string","info");
-	ljs_add_string(body,"1:ljsType_object/paragraph:ljsType_object/text:ljsType_string","Machine defect");
-	ljs_add_string(body,"1:ljsType_object/paragraph:ljsType_object/blink:ljsType_string","no");
-	ljs_add_string(body,"1:ljsType_object/paragraph:ljsType_object/underline:ljsType_string","no");
-	ljs_add_string(body,"1:ljsType_object/paragraph:ljsType_object/bold:ljsType_string","yes");
-	ljs_add_string(body,"1:ljsType_object/paragraph:ljsType_object/align:ljsType_string","left");
+	ljs_read_array(template,"payload:OBJ/msg:OBJ/body:ARR",&body);
+	ljs_add_string(body,"0:OBJ/msg_icon:OBJ/name:STR","3e");
+	ljs_add_string(body,"1:OBJ/paragraph:OBJ/text:STR","Machine defect");
+	ljs_add_string(body,"1:OBJ/paragraph:OBJ/blink:STR","no");
+	ljs_add_string(body,"1:OBJ/paragraph:OBJ/underline:STR","no");
+	ljs_add_string(body,"1:OBJ/paragraph:OBJ/bold:STR","yes");
+	ljs_add_string(body,"1:OBJ/paragraph:OBJ/align:STR","left");
 
 	ljs *reply=NULL; 
-	ljs_read_array(template,"payload:ljsType_object/msg:ljsType_object/reply_options:ljsType_array",&reply);
-	ljs_add_string(reply,"0:ljsType_object/option_id:ljsType_string","1234534354");
-	ljs_add_string(reply,"0:ljsType_object/reply:ljsType_object/text:ljsType_string","Accept");
-	ljs_add_string(reply,"1:ljsType_object/option_id:ljsType_string","5623432423");
-	ljs_add_string(reply,"1:ljsType_object/reply:ljsType_object/text:ljsType_string","Reject");
-    ljs_add_string(reply,"2:ljsType_object/option_id:ljsType_string","5623432457");
-	ljs_add_string(reply,"2:ljsType_object/reply:ljsType_object/text:ljsType_string","Dont know");
+	ljs_read_array(template,"payload:OBJ/msg:OBJ/reply_options:ARR",&reply);
+	ljs_add_string(reply,"0:OBJ/option_id:STR","1234534354");
+	ljs_add_string(reply,"0:OBJ/reply:OBJ/text:STR","Accept");
+	ljs_add_string(reply,"1:OBJ/option_id:STR","5623432423");
+	ljs_add_string(reply,"1:OBJ/reply:OBJ/text:STR","Reject");
+    ljs_add_string(reply,"2:OBJ/option_id:STR","5623432457");
+	ljs_add_string(reply,"2:OBJ/reply:OBJ/text:STR","Dont know");
     return template;
 }
 
 // ***************************************************************************************
-//
-//
-//
+// create mosquitto api messaging setMsg default message 
 // ***************************************************************************************
 static ljs*  msg_hs_template_del_msg(void)
 {
     ljs * template = NULL;
 
 	template = ljs_init();
-	ljs_add_string(template,"msgId:ljsType_string","xxxxx");
-    ljs_add_string(template,"payload:ljsType_object/amsgId:ljsType_string","xxxxxxxxx");
-	ljs_add_string(template,"payload:ljsType_object/sip_id:ljsType_string","xxxxx");
+	ljs_add_string(template,"msgId:STR","xxxxx");
+    ljs_add_string(template,"payload:OBJ/amsgId:STR","xxxxxxxxx");
+	ljs_add_string(template,"payload:OBJ/sip_id:STR","xxxxx");
     return template;
 }
 
 static int idx=0;
 // ***************************************************************************************
-//
-//
-//
+// modify given parameters of default setMsg 
 // ***************************************************************************************
 static void msg_hs_mod(ljs* js,int idx ,char *sipid,char *msgid,char *text,char *prio,char *ttl)
 {
     char msg_idx[40];
     idx=idx%10000;
     sprintf(msg_idx,"%d",idx);
-    ljs_add_string(js,"msgId:ljsType_string",msg_idx);
-    ljs_add_string(js,"payload:ljsType_object/sip_id:ljsType_string",sipid);
-    ljs_add_string(js,"payload:ljsType_object/amsgId:ljsType_string",msgid);
-    if(prio){ljs_add_string(js,"payload:ljsType_object/msg:ljsType_object/prio:ljsType_string",prio);}
-    if(ttl){ljs_add_string(js,"payload:ljsType_object/msg:ljsType_object/ttl:ljsType_string",ttl);}
+    ljs_add_string(js,"msgId:STR",msg_idx);
+    ljs_add_string(js,"payload:OBJ/sip_id:STR",sipid);
+    ljs_add_string(js,"payload:OBJ/amsgId:STR",msgid);
+    if(prio){ljs_add_string(js,"payload:OBJ/msg:OBJ/prio:STR",prio);}
+    if(ttl){ljs_add_string(js,"payload:OBJ/msg:OBJ/ttl:STR",ttl);}
     if(text)
     {
-        ljs_add_string(js,"payload:ljsType_object/msg:ljsType_object/title:ljsType_object/text:ljsType_string",text);
-        ljs_add_string(js,"payload:ljsType_object/msg:ljsType_object/body:ljsType_array/1:ljsType_object/paragraph:ljsType_object/text:ljsType_string",text);
+        ljs_add_string(js,"payload:OBJ/msg:OBJ/title:OBJ/text:STR",text);
+        ljs_add_string(js,"payload:OBJ/msg:OBJ/body:ARR/1:OBJ/paragraph:OBJ/text:STR",text);
         sprintf(msg_idx,"option_id_%d",3*idx);
-        ljs_add_string(js, "payload:ljsType_object/msg:ljsType_object/reply_options:ljsType_array/0:ljsType_object/option_id:ljsType_string",msg_idx);
+        ljs_add_string(js, "payload:OBJ/msg:OBJ/reply_options:ARR/0:OBJ/option_id:STR",msg_idx);
         sprintf(msg_idx,"option_id_%d",3*idx+1);
-        ljs_add_string(js, "payload:ljsType_object/msg:ljsType_object/reply_options:ljsType_array/1:ljsType_object/option_id:ljsType_string",msg_idx);
+        ljs_add_string(js, "payload:OBJ/msg:OBJ/reply_options:ARR/1:OBJ/option_id:STR",msg_idx);
         sprintf(msg_idx,"option_id_%d",3*idx+2);
-        ljs_add_string(js, "payload:ljsType_object/msg:ljsType_object/reply_options:ljsType_array/2:ljsType_object/option_id:ljsType_string",msg_idx);
+        ljs_add_string(js, "payload:OBJ/msg:OBJ/reply_options:ARR/2:OBJ/option_id:STR",msg_idx);
     }
 }
 
 // ***************************************************************************************
-//
-//
-//
+// send mosquitto api message
 // ***************************************************************************************
 // mosquitto_pub -u as1 --psk-identity as1 --psk 123456789012345678901234567890ab -t "as1/service1/xxl/api/req/status" -m '{"msgId": "gen_1","params":{}}' -p 8884 -h 192.168.178.89
 static void msg_send(ljs* ljs_out, char *topic)
@@ -396,7 +393,6 @@ static void msg_send(ljs* ljs_out, char *topic)
     ljs_free(ljs_out);
 }
 
-
 // ***************************************************************************************
 //
 //
@@ -410,8 +406,8 @@ static void status_send(void)
     char temp[20000];
 
 	js = ljs_init();
-	ljs_add_string(js,"msgId:ljsType_string","4712");
-    ljs_add_object(js, "params:ljsType_object",NULL);
+	ljs_add_string(js,"msgId:STR","4712");
+    ljs_add_object(js, "params:OBJ",NULL);
     out=ljs_print_malloc(js);
     if(out)
     {
@@ -445,9 +441,9 @@ static void pos_dect_send(char *token, int idx)
     if (token && (sipid=strtok(token,"|")))
     {
         js = ljs_init();
-        ljs_add_string(js,"msgId:ljsType_string",msg_idx);
-        ljs_add_string(js,"params:ljsType_object/sip_id:ljsType_string",sipid);
-        ljs_add_string(js,"params:ljsType_object/mode:ljsType_string","dps");
+        ljs_add_string(js,"msgId:STR",msg_idx);
+        ljs_add_string(js,"params:OBJ/sip_id:STR",sipid);
+        ljs_add_string(js,"params:OBJ/mode:STR","dps");
         out=ljs_print_malloc(js);
         sprintf(topic,"as1/service2/sip_id/%s/req/position",sipid);
         sprintf(temp, "mosquitto_pub -u as1 --psk-identity as1 --psk 123456789012345678901234567890ab -t \'%s\' -m \'%s\' -p 8884 -h 192.168.178.89", topic, out);
@@ -479,13 +475,13 @@ static void pos_ble_send(char *token, int idx)
     if (token && (sipid=strtok(token,"|")))
     {
         js = ljs_init();
-        ljs_add_string(js,"msgId:ljsType_string",msg_idx);
-        ljs_add_string(js,"params:ljsType_object/sip_id:ljsType_string",sipid);
-        ljs_add_string(js,"params:ljsType_object/mode:ljsType_string","ble");
-        ljs_add_array(js,"params:ljsType_object/company_ids:ljsType_array",NULL);
-        ljs_add_string(js,"params:ljsType_object/timeout:ljsType_string","5");
-        ljs_add_string(js,"params:ljsType_object/max_beacons:ljsType_string","4");
-        ljs_add_string(js,"params:ljsType_object/req_info:ljsType_string","0F");
+        ljs_add_string(js,"msgId:STR",msg_idx);
+        ljs_add_string(js,"params:OBJ/sip_id:STR",sipid);
+        ljs_add_string(js,"params:OBJ/mode:STR","ble");
+        ljs_add_array(js,"params:OBJ/company_ids:ARR",NULL);
+        ljs_add_string(js,"params:OBJ/timeout:STR","5");
+        ljs_add_string(js,"params:OBJ/max_beacons:STR","4");
+        ljs_add_string(js,"params:OBJ/req_info:STR","0F");
         out=ljs_print_malloc(js);
         sprintf(topic,"as1/service2/sip_id/%s/req/position",sipid);
         sprintf(temp, "mosquitto_pub -u as1 --psk-identity as1 --psk 123456789012345678901234567890ab -t \'%s\' -m \'%s\' -p 8884 -h 192.168.178.89", topic, out);
