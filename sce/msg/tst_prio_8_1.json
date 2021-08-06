@@ -16,12 +16,12 @@
             "alert_info":"msg_melody_high",
             "body_starter":"Positioning",
             "msg_icon":{
-                "name":"3a"
+                "value":"3a"
             },
             "body":[
                 {
                     "msg_icon":{
-                        "name":"3a"
+                        "value":"3a"
                     }
                 },
                 {

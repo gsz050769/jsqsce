@@ -17,12 +17,12 @@
             "presentation_timer":"15",
             "body_starter":"A cup of coffee",
             "msg_icon":{
-                "name":"3b"
+                "value":"3b"
             },
             "body":[
                 {
                     "msg_icon":{
-                        "name":"3b"
+                        "value":"3b"
                     }
                 },
                 {

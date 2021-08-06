@@ -1,0 +1,27 @@
+
+<title>
+
+
+precond:	4021 subscribed + messaging enabled, mesasge box is empty
+
+1) send prio 7 message                     title is displayed with end = '...'          /tst/title.sce
+title= "123456789012345678"
+2) send prio 7 message                     msg rejected by msg_srv, Error ???           /tst/title.sce
+title= "ÄÜÖäüöÄÜÖäüöÄÜÖäüö"
+3) send prio 7 message                     title is displayed                           /tst/title.sce
+title= "ÄÜÖäüö"
+4) send prio 7 message                     title is displayed                           /tst/title.sce
+title= "ÄÜÖäüöÜäüÖ"
+5) send prio 7 message                     msg rejected by msg_srv, Error ???           /tst/title.sce
+title= "ÄÜÖäüöÜäüÖö"
+6) send prio 7 message                     title is displayed with end = '...'          /tst/title.sce
+title= "1234567890123456780"
+7) send prio 7 message                     msg rejected by msg_srv, Error ???           /tst/title.sce
+title= "12345678901234567801"
+8) send prio 7 message                     title is displayed                           /tst/title.sce
+title= "þÿ®Aa¶Æ"
+8) send prio 7 message                     ?a?b?c? is displayed                         /tst/title.sce
+title= "ثaصbطcػ"  (Hebrew)
+
+
+

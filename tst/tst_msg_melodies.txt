@@ -1,0 +1,46 @@
+
+<alerting and melodies>
+
+<<melodies>>
+precond:	4021 subscribed + messaging enabled, mesasge box is empty
+
+1) message with mel = high		signal message with melody assigned to high 		./msg_script ./tst/prio_7_mel.sce
+					terminal_msg_status":"fullview"
+2) delete message			
+3) message with mel = mid		signal message with melody assigned to mid  		./msg_script ./tst/prio_7_mel.sce
+					terminal_msg_status":"fullview"
+4) delete message			
+5) message with mel = low		signal message with melody assigned to low 		./msg_script ./tst/prio_7_mel.sce
+					terminal_msg_status":"fullview"
+6) delete message			
+7) message with mel = silent		signal message without melody 				./msg_script ./tst/prio_7_mel.sce
+					terminal_msg_status":"fullview"
+8) configure hs meldies 
+9) message with mel = high		signal message with melody assigned to high 		./msg_script ./tst/prio_7_mel.sce
+					terminal_msg_status":"fullview"
+10) delete message			
+11) message with mel = mid		signal message with melody assigned to mid  		./msg_script ./tst/prio_7_mel.sce
+					terminal_msg_status":"fullview"
+12) delete message			
+13) message with mel = low		signal message with melody assigned to low 		./msg_script ./tst/prio_7_mel.sce
+					terminal_msg_status":"fullview"
+14) delete message			
+15) message with mel = silent		signal message without melody 				./msg_script ./tst/prio_7_mel.sce
+					terminal_msg_status":"fullview"
+16) delete message
+
+<<stop mel with key press>>
+precond:	4021 subscribed + messaging enabled, mesasge box is empty
+			
+1) message with mel = high		signal message with melody assigned to high 		./msg_script ./tst/prio_7_mel.sce
+					terminal_msg_status":"fullview"
+2) press any key except on-hook	melody stops, message is still displayed			Profile key does not work becasue key is not sent to BS
+					terminal_msg_status":"fullview_with_user_interact"	auto accept = on + out of charger same as off-hook
+
+
+<<update message>>
+precond:	4021 subscribed + messaging enabled, mesasge box is empty					
+1.) message with mel = high		signal message with melody assigned to high 		./msg_script ./prio_7_mel_msg_update.sce
+					terminal_msg_status":"fullview"						
+2.) update message with mel = low	melody does not change
+					terminal_msg_status":"fullview_with_user_interact"						

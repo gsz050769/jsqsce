@@ -1,0 +1,14 @@
+
+<reply options>
+
+
+precond:	4021 subscribed + messaging enabled, mesasge box is empty
+
+1) send prio 7 message                     xxxxxxxxxxxxxxxx          /tst/reply_options.sce
+
+
+
+
+
+
+

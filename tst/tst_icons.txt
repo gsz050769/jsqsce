@@ -1,0 +1,29 @@
+
+<icons>
+
+
+precond:	4021 subscribed + messaging enabled, mesasge box is empty
+
+1) send prio 7 message                     xxxxxxxxxxxxxxxx          /tst/title.sce
+status_icon=7 (answering mach)
+msg icon=8 (Home number)
+body_icon=40 home dynamic
+
+2) send prio 7 message                     xxxxxxxxxxxxxxxx          /tst/title.sce
+status_icon=99 (answering mach)
+msg icon=8 (Home number)
+body_icon=34 bell
+
+3) send prio 7 message                     xxxxxxxxxxxxxxxx          /tst/title.sce
+status_icon=1f (answering mach)
+msg icon=23 (burglar)
+body_icon=75 chemical spell
+
+4) send prio 7 message                     xxxxxxxxxxxxxxxx          /tst/title.sce
+status_icon= empty
+msg icon=23 (burglar)
+body_icon=62 fire
+
+
+
+

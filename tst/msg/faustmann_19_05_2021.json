@@ -1,0 +1,51 @@
+{
+    "msgId": "as2_{{payload}}",
+    "payload": {
+        "amsgId": "4",
+        "sip_id": "4021",
+        "msg": {
+            "server_msg_status": "new",
+            "status_text": "POS",
+            "prio": "1",
+            "alert_info": "msg_melody_mid",
+            "presentation_time": "30",
+            "local_ignore": "yes",
+            "title": {
+                "text": "DAKS MESSAGE"
+            },
+            "body_starter": "100 Feueralarm Geb\u00e4ude 4A",
+            "body": [{
+                    "msg_icon": {
+                        "value": "40",
+                        "color": "00"
+                    }},
+                    {
+                    "paragraph": {
+                        "text": "Feueralarm Geb\u00e4ude 4A, Bereich Warenlager",
+                        "blink": "no",
+                        "underline": "no",
+                        "bold": "no",
+                        "align": "left"
+                    }
+                }
+            ],
+            "msg_icon": {
+                "value": "03"
+            },
+            "deletable": "yes",
+            "ttl": "99999",
+            "reply_options": [{
+                    "option_id": "1",
+                    "reply": {
+                        "text": "Pos"
+                    }
+                }, {
+                    "option_id": "2",
+                    "reply": {
+                        "text": "Neg"
+                    }
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,45 @@
+{
+    "msgId":"x_set_by_script_x",
+    "payload":{
+        "amsgId":"x_set_by_script_x",
+        "sip_id":"x_set_by_script_x",
+        "msg":{
+            "server_msg_status":"new",
+            "prio":"5",
+            "status_icon":"3b",
+            "status_text":"accept",
+            "deletable":"no",
+            "presentation_time":"40",
+            "ttl":"600",
+            "body_starter":"A cup of coffee",
+            "msg_icon":{
+                "value":"3b"
+            },
+            "body":[
+                {
+                    "msg_icon":{
+                        "value":"3b"
+                    }
+                },
+                {
+                    "paragraph":{
+                        "text":"A cup of coffee, and only for me, that s my daily procession, within a five minute session",
+                        "blink":"no",
+                        "underline":"no",
+                        "bold":"yes",
+                        "align":"left"
+                    }
+                },
+                {
+                    "paragraph":{
+                        "text":"test",
+                        "blink":"no",
+                        "underline":"no",
+                        "bold":"yes",
+                        "align":"left"
+                    }
+                }
+            ]
+        }
+    }
+}

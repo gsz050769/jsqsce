@@ -1,0 +1,58 @@
+{
+    "msgId":"x_set_by_script_x",
+    "payload":{
+        "amsgId":"x_set_by_script_x",
+        "sip_id":"x_set_by_script_x",
+        "msg":{
+            "server_msg_status":"new",
+            "prio":"7",
+            "title":{
+                "text":"Body Tst 3"
+            },
+            "status_text":"ready",
+            "deletable":"no",
+            "ttl":"600",
+            "alert_info":"msg_melody_silent",
+            "body_starter":"A cup of coffee",
+            "msg_icon":{
+                "value":"23"
+            },
+            "body":[
+                {
+                    "paragraph":{
+                        "text":"paragraph 1: text only"
+                    }
+                },
+                {
+                    "paragraph":{
+                        "blink":"yes",
+                        "underline":"yes",
+                        "bold":"yes",
+                        "align":"left"
+                    }
+                },
+                {
+                    "paragraph":{
+                        "text":"paragraph 3: bl=no ",
+                        "blink":"no"
+                    }
+                }
+            ],
+            "reply_options":[
+                {
+                    "option_id":"option_id_1",
+                    "reply":{
+                        "text":"Now"
+                    }
+                },
+                {
+                    "option_id":"option_id_2"
+                    ,"reply":{
+                        "text":"Later"
+                    }
+                }
+
+             ]
+        }
+    }
+}

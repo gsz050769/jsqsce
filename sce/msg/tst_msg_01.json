@@ -5,9 +5,9 @@
         "sip_id":"4021",
         "msg":{
             "server_msg_status":"new",
-            "prio":"9",
+            "prio":"7",
             "title":{
-                "text":"<=Prio_6_2=>"
+                "text":"<=Prio_7_mel high=>"
             },
             "status_icon":"ico_accept",
             "status_text":"accept",
@@ -16,7 +16,7 @@
             "alert_info":"msg_melody_high",
             "body_starter":"appetizer",
             "msg_icon":{
-                "name":"exclamation_mark"
+                "value":"exclamation_mark"
             },
             "body":[
                 {

@@ -1,0 +1,12 @@
+
+<alerting and melodies>
+
+<<melodies>>
+precond:	4021 subscribed + messaging enabled, mesasge box is empty
+
+1) message with mel = mid		    signal message with melody assigned to mid 		/tst/prio_7_server_msg_state_old
+					    terminal_msg_status":"fullview"
+
+2) update message with server status=old    mesage is not presented anymore as hottest		/tst/prio_7_server_msg_state_old
+                                            terminal_msg_status": "queued"
+

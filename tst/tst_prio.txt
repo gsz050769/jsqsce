@@ -1,0 +1,54 @@
+
+<priorities>
+
+<<new messages>>
+precond:	4021 subscribed + messaging enabled, mesasge box is empty
+
+1) send prio 9 message                      MWI counter is increased, LED is blinking	    /tst/prio.sce
+					    terminal_msg_status":"fullview"
+2) send prio 8 message                      Message is visible on idle display
+                                            terminal_msg_status":"fullview"
+3) send prio 7 message                      Message is visible on display, HS rings
+                                            terminal_msg_status":"fullview"
+4) send prio 6 message                      Idle, start msg signaling,
+                                            Message is visible on display, HS rings
+                                            terminal_msg_status":"fullview"
+5) send prio 5 message                      Idle, start msg signaling,
+                                            Message is visible on display, HS rings
+                                            terminal_msg_status":"fullview"
+6) send prio 4 message                      Idle, start msg signaling,
+                                            Message is visible on display, HS rings
+                                            terminal_msg_status":"fullview"
+7) send prio 3 message                      Idle, start msg signaling,
+                                            Message is visible on display, HS rings
+                                            terminal_msg_status":"fullview"
+8) send prio 2 message                      Idle, start msg signaling,
+                                            Message is visible on display, HS rings
+                                            terminal_msg_status":"fullview"
+9) send prio 1 message                      Idle, start msg signaling,
+                                            Message is visible on display, HS rings
+                                            terminal_msg_status":"fullview"
+10) delete prio 1 message                   Prio 2 is starts signaling
+11) delete prio 2 message                   Prio 3 is starts signaling
+12) delete prio 3 message                   Prio 4 is starts signaling
+13) delete prio 4 message                   Prio 5 is starts signaling
+14) delete prio 5 message                   Prio 6 is starts signaling
+15) delete prio 6 message                   Prio 7 is starts signaling
+16) delete prio 7 message                   Prio 8 is dsiplayed
+17) delete prio 8 message                   Prio 9 is starts signaling
+18) delete prio 9 message                   MWI count is visible LED is blinking
+19) delete prio 9 message                   idle display
+
+<<update messages>>
+1) send prio 9 message                      MWI counter is increased, LED is blinking	    /tst/prio_msg_update.sce
+					    terminal_msg_status":"fullview"
+2) send prio 8 message                      Message is visible on idle display
+                                            terminal_msg_status":"fullview"
+3) send prio 7 message                      Message is visible on display, HS rings
+                                            terminal_msg_status":"fullview"
+4) send prio 6 message                      content is updated, message display is not restarted
+                                            terminal_msg_status":"fullview"
+...
+9) send prio 1 message                      content is updated, message display is not restarted
+                                            terminal_msg_status":"fullview
+10) delete msg                              idle display, MWI off, LED Off

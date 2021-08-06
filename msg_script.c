@@ -63,6 +63,8 @@ int main(int argc, const char *argv[])
     char * msgfile=NULL;
     int    msgidx=0;
     pthread_t mqtt_status_thread;
+    int loop_idx_sipid=0;
+    int loop_idx_amsgid=0;
     
     //
     // check for input scenario, if not given, take "msg.sce" from local directory
@@ -143,6 +145,38 @@ int main(int argc, const char *argv[])
             }
             continue;
         }
+        if (token && (strcmp(token,"S_MSG_INC")==0))
+        {
+            token=strtok(NULL,":");
+            printf("S_MSG_INC: %s",token?token:"");
+            if (token && (sipid=strtok(token,"|")))
+            {
+                if (ammsgid=strtok(NULL,"|"))
+                {
+                     if (prio=strtok(NULL,"|"))
+                     {
+                        if (ttl=strtok(NULL,"|"))
+                        {
+                            printf("S_MSG: %s|%s|%s|%s|\n",sipid,ammsgid,prio,ttl);
+                            text=strtok(NULL,"|");
+                            js=msg_hs_template_set_msg();
+                            char buf1[100];
+                            char buf2[100];
+                            int number=atoi(sipid);
+                            number+=loop_idx_sipid;
+                            sprintf(buf1,"%d",number);
+                            sprintf(buf2,"%s_%d",ammsgid,loop_idx_amsgid);
+                            msg_hs_mod(js,msgidx,buf1,buf2,text,prio,ttl);
+                            msg_send(js,"as1/msg/xxl/msgsrv/req/setMsg");
+                            msgidx++;
+                            loop_idx_sipid++;
+                            loop_idx_amsgid++;
+                        }
+                     }
+                }
+            }
+            continue;
+        }
         if (token && (strcmp(token,"D_MSG")==0))
         {
             token=strtok(NULL,":");
@@ -174,6 +208,7 @@ int main(int argc, const char *argv[])
         {
             printf("RESTART scenario\n");
             rewind(file);
+            loop_idx_sipid=0;
             continue;
         }
         if (token && (strcmp(token,"END")==0))
@@ -299,21 +334,21 @@ static ljs*  msg_hs_template_set_msg(void)
 	ljs_add_string(template,"payload:OBJ/msg:OBJ/server_msg_status:STR","new");
     ljs_add_string(template,"payload:OBJ/msg:OBJ/prio:STR","6");
     ljs_add_string(template,"payload:OBJ/msg:OBJ/title:OBJ/text:STR","Title");
-	ljs_add_string(template,"payload:OBJ/msg:OBJ/status_icon:STR","3e");
+	ljs_add_string(template,"payload:OBJ/msg:OBJ/status_icon:STR","3c");
 	ljs_add_string(template,"payload:OBJ/msg:OBJ/status_text:STR","accept");
 	ljs_add_string(template,"payload:OBJ/msg:OBJ/deletable:STR","true");
 	ljs_add_string(template,"payload:OBJ/msg:OBJ/ttl:STR","1039");
     ljs_add_string(template,"payload:OBJ/msg:OBJ/alert_info:STR","msg_melody_high");
     ljs_add_string(template,"payload:OBJ/msg:OBJ/body_starter:STR","appetizer");
     ljs_add_string(template,"payload:OBJ/msg:OBJ/deletable:STR","no");
-	ljs_add_string(template,"payload:OBJ/msg:OBJ/msg_icon:OBJ/name:STR","3e");
+	ljs_add_string(template,"payload:OBJ/msg:OBJ/msg_icon:OBJ/value:STR","3e");
 	ljs_add_array(template, "payload:OBJ/msg:OBJ/body:ARR",NULL);
 	ljs_add_array(template, "payload:OBJ/msg:OBJ/reply_options:ARR",NULL);
 
 	
 	ljs *body=NULL; 
 	ljs_read_array(template,"payload:OBJ/msg:OBJ/body:ARR",&body);
-	ljs_add_string(body,"0:OBJ/msg_icon:OBJ/name:STR","3e");
+	ljs_add_string(body,"0:OBJ/msg_icon:OBJ/value:STR","3c");
 	ljs_add_string(body,"1:OBJ/paragraph:OBJ/text:STR","Machine defect");
 	ljs_add_string(body,"1:OBJ/paragraph:OBJ/blink:STR","no");
 	ljs_add_string(body,"1:OBJ/paragraph:OBJ/underline:STR","no");
@@ -478,10 +513,13 @@ static void pos_ble_send(char *token, int idx)
         ljs_add_string(js,"msgId:STR",msg_idx);
         ljs_add_string(js,"params:OBJ/sip_id:STR",sipid);
         ljs_add_string(js,"params:OBJ/mode:STR","ble");
-        ljs_add_array(js,"params:OBJ/company_ids:ARR",NULL);
-        ljs_add_string(js,"params:OBJ/timeout:STR","5");
-        ljs_add_string(js,"params:OBJ/max_beacons:STR","4");
-        ljs_add_string(js,"params:OBJ/req_info:STR","0F");
+        ljs_add_array(js,"params:OBJ/ble:OBJ/company_ids:ARR",NULL);
+        ljs_add_string(js,"params:OBJ/ble:OBJ/search_timeout:STR","20");
+        ljs_add_string(js,"params:OBJ/ble:OBJ/max_beacons:STR","4");
+        ljs_add_string(js,"params:OBJ/ble:OBJ/request_info:ARR/0:STR","public_address");
+        ljs_add_string(js,"params:OBJ/ble:OBJ/request_info:ARR/1:STR","random_address");
+        ljs_add_string(js,"params:OBJ/ble:OBJ/request_info:ARR/2:STR","advert_data");
+        ljs_add_string(js,"params:OBJ/ble:OBJ/request_info:ARR/3:STR","signal_strength");
         out=ljs_print_malloc(js);
         sprintf(topic,"as1/service2/sip_id/%s/req/position",sipid);
         sprintf(temp, "mosquitto_pub -u as1 --psk-identity as1 --psk 123456789012345678901234567890ab -t \'%s\' -m \'%s\' -p 8884 -h 192.168.178.89", topic, out);
