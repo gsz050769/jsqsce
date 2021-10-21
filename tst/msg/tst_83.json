@@ -15,9 +15,9 @@
             "presentation_time":"40",
             "ttl":"600",
             "alert_info":"msg_melody_high",
-            "overrule_silencing":"yes",
-            "vibration":"yes",
-            "ringtone_volume":"50",
+            "overrule_silencing":"dddd",
+            "vibration":"dddds",
+            "ringtone_volume":"200",
             "body_starter":"A cup of coffee",
             "msg_icon":{
                 "value":"3b"
@@ -50,23 +50,14 @@
             "reply_options":[
                 {
                     "option_id":"option_id_1",
-                    "reply":{
-                        "text":"Now"
-                    }
-                },
-                {
-                    "option_id":"option_id_2"
-                    ,"reply":{
-                        "text":"Later"
-                    }
-                },
-                {
-                    "option_id":"option_id_3",
-                    "reply":{
-                        "text":"No"
+                    "make_call":{
+                        "text":"4020",
+                        "to":"4020",
+                        "user_interaction":"automatic",
+                        "pref_audio":"handset_mode",
+                        "audio_direction":"duplex"
                     }
                 }
-
              ]
         }
     }

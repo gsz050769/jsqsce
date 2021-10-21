@@ -22,6 +22,8 @@
 
 // jsqlib: parsing + build json content
 #include "libjson.h"
+#include "msg_status.h"
+
 
 //
 // static functions
@@ -160,16 +162,11 @@ int main(int argc, const char *argv[])
                             printf("S_MSG: %s|%s|%s|%s|\n",sipid,ammsgid,prio,ttl);
                             text=strtok(NULL,"|");
                             js=msg_hs_template_set_msg();
-                            char buf1[100];
                             char buf2[100];
-                            int number=atoi(sipid);
-                            number+=loop_idx_sipid;
-                            sprintf(buf1,"%d",number);
                             sprintf(buf2,"%s_%d",ammsgid,loop_idx_amsgid);
-                            msg_hs_mod(js,msgidx,buf1,buf2,text,prio,ttl);
+                            msg_hs_mod(js,msgidx,sipid,buf2,text,prio,ttl);
                             msg_send(js,"as1/msg/xxl/msgsrv/req/setMsg");
                             msgidx++;
-                            loop_idx_sipid++;
                             loop_idx_amsgid++;
                         }
                      }
@@ -204,6 +201,10 @@ int main(int argc, const char *argv[])
             }
             continue;
         }
+        if (token && (strcmp(token,"MSG_STATUS")==0))
+        {
+            msg_status_log();
+        }
         if (token && (strcmp(token,"RESTART")==0))
         {
             printf("RESTART scenario\n");
@@ -222,11 +223,13 @@ int main(int argc, const char *argv[])
         }
         if (token && (strcmp(token,"POS_BLE")==0))
         {
+            msgidx++;
             token=strtok(NULL,":");
             pos_ble_send(token,msgidx);
         }
         if (token && (strcmp(token,"POS_DECT")==0))
         {
+            msgidx++;
             token=strtok(NULL,":");
             pos_dect_send(token,msgidx);
         }
@@ -254,6 +257,7 @@ int main(int argc, const char *argv[])
 // ***************************************************************************************
 static void * mqtt_sub_res(void * arg)
 {
+    char *tmp=0;
     char temp[500];
     char * topic="+/+/as1/+/#";
     sprintf(temp, "mosquitto_sub -u as1 --psk-identity as1 --psk 123456789012345678901234567890ab -v -t \'%s\' -p 8884 -h 192.168.178.89", topic);
@@ -265,6 +269,8 @@ static void * mqtt_sub_res(void * arg)
         while(fgets(result,sizeof(result),cmd)!=0)
         {
             printf("Receive: %s\n",result);
+            msg_status_receive(result);
+            msg_status_log();
         }
         pclose(cmd);
     }
@@ -332,15 +338,14 @@ static ljs*  msg_hs_template_set_msg(void)
     ljs_add_string(template,"payload:OBJ/amsgId:STR","xxxxxxxxx");
 	ljs_add_string(template,"payload:OBJ/sip_id:STR","xxxxx");
 	ljs_add_string(template,"payload:OBJ/msg:OBJ/server_msg_status:STR","new");
-    ljs_add_string(template,"payload:OBJ/msg:OBJ/prio:STR","6");
+    ljs_add_string(template,"payload:OBJ/msg:OBJ/prio:STR","7");
     ljs_add_string(template,"payload:OBJ/msg:OBJ/title:OBJ/text:STR","Title");
 	ljs_add_string(template,"payload:OBJ/msg:OBJ/status_icon:STR","3c");
 	ljs_add_string(template,"payload:OBJ/msg:OBJ/status_text:STR","accept");
-	ljs_add_string(template,"payload:OBJ/msg:OBJ/deletable:STR","true");
 	ljs_add_string(template,"payload:OBJ/msg:OBJ/ttl:STR","1039");
     ljs_add_string(template,"payload:OBJ/msg:OBJ/alert_info:STR","msg_melody_high");
     ljs_add_string(template,"payload:OBJ/msg:OBJ/body_starter:STR","appetizer");
-    ljs_add_string(template,"payload:OBJ/msg:OBJ/deletable:STR","no");
+    ljs_add_string(template,"payload:OBJ/msg:OBJ/deletable:STR","yes");
 	ljs_add_string(template,"payload:OBJ/msg:OBJ/msg_icon:OBJ/value:STR","3e");
 	ljs_add_array(template, "payload:OBJ/msg:OBJ/body:ARR",NULL);
 	ljs_add_array(template, "payload:OBJ/msg:OBJ/reply_options:ARR",NULL);

@@ -2,20 +2,378 @@
 // STATUS:     = get status message
 // S_MSG:      = setMsg <sip_id>|<a_msg_id>|<prio>|<ttl>|text|
 // S_MSG_FILE: = setMsg <sip_id>|<a_msg_id>|<file>|  setMsg from <file>
+// S_MSG_INC:  = setMsg <sip_id>|<a_msg_id>|<prio>|<ttl>|text| same as SET_MSG but with incremented as postfix to <a_msg_id>
 // D_MSG:      = delMsg <sip_id>|<a_msg_id>
 // POS_BLE:    = ble position req <sip_id>|
 // POS_DECT:   = dect position req <sip_id>|
 // WAIT:       = sleep <seconds>
 // RESTART:    = start script again   
 // END:        = end scenrio here
-// 
+// MSG_STATUS:     = log message status
 //
+
+S_MSG_INC:4020|4020_1|2|900|<< EINS >>|
+WAIT: 10
+RESTART:
+
+STATUS:
+S_MSG_INC:4002|4002_1|2|900|<< EINS >>|
+S_MSG_INC:4004|4004_1|2|900|<< EINS >>|
+S_MSG_INC:4005|4005_1|2|900|<< EINS >>|
+S_MSG_INC:4007|4007_1|2|900|<< EINS >>|
+S_MSG_INC:4011|4011_1|2|900|<< EINS >>|
+S_MSG_INC:4018|4018_1|2|900|<< EINS >>|
+S_MSG_INC:4019|4019_1|2|900|<< EINS >>|
+S_MSG_INC:4020|4020_1|2|900|<< EINS >>|
+S_MSG_INC:4026|4026_1|2|900|<< EINS >>|
+S_MSG_INC:4028|4028_1|2|900|<< EINS >>|
+S_MSG_INC:4041|4041_1|2|900|<< EINS >>|
+WAIT: 10
+S_MSG_INC:4002|4002_1|2|900|<< ZWEI >>|
+S_MSG_INC:4004|4004_1|2|900|<< ZWEI >>|
+S_MSG_INC:4005|4005_1|2|900|<< ZWEI >>|
+S_MSG_INC:4007|4007_1|2|900|<< ZWEI >>|
+S_MSG_INC:4011|4011_1|2|900|<< ZWEI >>|
+S_MSG_INC:4018|4018_1|2|900|<< ZWEI >>|
+S_MSG_INC:4019|4019_1|2|900|<< ZWEI >>|
+S_MSG_INC:4020|4020_1|2|900|<< ZWEI >>|
+S_MSG_INC:4026|4026_1|2|900|<< ZWEI >>|
+S_MSG_INC:4028|4028_1|2|900|<< ZWEI >>|
+S_MSG_INC:4041|4041_1|2|900|<< ZWEI >>|
+WAIT: 10
+LOG: MSG STSTUS MSG STATUS MSG STATUS MSG STATUS MSG STATUS MSG STATUS MSG STATUS
+MSG_STATUS:
+RESTART:
+
+
+S_MSG_FILE:4020|4020_1|./msg/tet_46_msg_initial.json|
+WAIT: 15
+S_MSG_FILE:4020|4020_2|./msg/tet_46_msg_initial.json|
+WAIT: 200
+END:
+
+S_MSG_FILE:4020|4020_1|./msg/tet_46_msg_initial.json|
+WAIT: 15
+S_MSG_FILE:4020|4020_2|./msg/tet_46_msg_initial.json|
+WAIT: 15
+S_MSG_FILE:4020|4020_3|./msg/tet_46_msg_initial.json|
+WAIT: 15
+S_MSG_FILE:4020|4020_4|./msg/tet_46_msg_initial.json|
+WAIT: 15
+S_MSG_FILE:4020|4020_5|./msg/tet_46_msg_initial.json|
+WAIT: 15
+S_MSG_FILE:4020|4020_6|./msg/tet_46_msg_initial.json|
+WAIT: 15
+S_MSG_FILE:4020|4020_7|./msg/tet_46_msg_initial.json|
+WAIT: 15
+S_MSG_FILE:4020|4020_8|./msg/tet_46_msg_initial.json|
+WAIT: 15
+S_MSG_FILE:4020|4020_9|./msg/tet_46_msg_initial.json|
+WAIT: 15
+S_MSG_FILE:4020|4020_10|./msg/tet_46_msg_initial.json|
+WAIT: 15
+S_MSG_FILE:4020|4020_11|./msg/tet_46_msg_initial.json|
+WAIT: 15
+S_MSG_FILE:4020|4020_12|./msg/tet_46_msg_initial.json|
+WAIT: 15
+S_MSG_FILE:4020|4020_13|./msg/tet_46_msg_initial.json|
+WAIT: 15
+S_MSG_FILE:4020|4020_14|./msg/tet_46_msg_initial.json|
+WAIT: 15
+S_MSG_FILE:4020|4020_15|./msg/tet_46_msg_initial.json|
+WAIT: 15
+S_MSG_FILE:4020|4020_16|./msg/tet_46_msg_initial.json|
+WAIT: 15
+S_MSG_FILE:4020|4020_17|./msg/tet_46_msg_initial.json|
+WAIT: 15
+S_MSG_FILE:4020|4020_18|./msg/tet_46_msg_initial.json|
+WAIT: 15
+S_MSG_FILE:4020|4020_19|./msg/tet_46_msg_initial.json|
+WAIT: 15
+S_MSG_FILE:4020|4020_21|./msg/tet_46_msg_initial.json|
+WAIT: 15
+S_MSG_FILE:4020|4020_22|./msg/tet_46_msg_initial.json|
+WAIT: 15
+S_MSG_FILE:4020|4020_23|./msg/tet_46_msg_initial.json|
+WAIT: 15
+S_MSG_FILE:4020|4020_24|./msg/tet_46_msg_initial.json|
+WAIT: 15
+S_MSG_FILE:4020|4020_25|./msg/tet_46_msg_initial.json|
+WAIT: 15
+S_MSG_FILE:4020|4020_26|./msg/tet_46_msg_initial.json|
+WAIT: 15
+S_MSG_FILE:4020|4020_27|./msg/tet_46_msg_initial.json|
+WAIT: 15
+S_MSG_FILE:4020|4020_28|./msg/tet_46_msg_initial.json|
+WAIT: 15
+S_MSG_FILE:4020|4020_29|./msg/tet_46_msg_initial.json|
+WAIT: 15
+S_MSG_FILE:4020|4020_30|./msg/tet_46_msg_initial.json|
+WAIT: 400
+END:
 
 
 STATUS:
 WAIT: 1
-S_MSG_FILE:4021|4021_1|./tst/msg/tst_81.json|
-WAIT: 100
+S_MSG_FILE:4002|4002_1|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4004|4004_1|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4005|4005_1|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4007|4007_1|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4011|4011_1|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4018|4018_1|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4019|4019_1|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4020|4020_1|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4026|4026_1|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4028|4028_1|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4041|4041_1|./msg/tet_46_msg_initial.json|
+WAIT: 15
+S_MSG_FILE:4002|4002_2|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4004|4004_2|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4005|4005_2|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4007|4007_2|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4011|4011_2|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4018|4018_2|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4019|4019_2|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4020|4020_2|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4026|4026_2|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4028|4028_2|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4041|4041_2|./msg/tet_46_msg_initial.json|
+WAIT: 15
+S_MSG_FILE:4002|4002_4|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4004|4004_4|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4005|4005_4|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4007|4007_4|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4011|4011_4|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4018|4018_4|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4019|4019_4|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4020|4020_4|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4026|4026_4|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4028|4028_4|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4041|4041_4|./msg/tet_46_msg_initial.json|
+WAIT: 15
+S_MSG_FILE:4002|4002_5|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4004|4004_5|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4005|4005_5|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4007|4007_5|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4011|4011_5|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4018|4018_5|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4019|4019_5|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4020|4020_5|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4026|4026_5|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4028|4028_5|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4041|4041_5|./msg/tet_46_msg_initial.json|
+WAIT: 15
+S_MSG_FILE:4002|4002_6|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4004|4004_6|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4005|4005_6|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4007|4007_6|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4011|4011_6|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4018|4018_6|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4019|4019_6|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4020|4020_6|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4026|4026_6|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4028|4028_6|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4041|4041_6|./msg/tet_46_msg_initial.json|
+WAIT: 15
+S_MSG_FILE:4002|4002_7|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4004|4004_7|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4005|4005_7|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4007|4007_7|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4011|4011_7|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4018|4018_7|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4019|4019_7|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4020|4020_7|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4026|4026_7|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4028|4028_7|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4041|4041_7|./msg/tet_46_msg_initial.json|
+WAIT: 15
+S_MSG_FILE:4002|4002_8|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4004|4004_8|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4005|4005_8|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4007|4007_8|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4011|4011_8|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4018|4018_8|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4019|4019_8|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4020|4020_8|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4026|4026_8|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4028|4028_8|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4041|4041_8|./msg/tet_46_msg_initial.json|
+WAIT: 15
+S_MSG_FILE:4002|4002_9|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4004|4004_9|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4005|4005_9|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4007|4007_9|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4011|4011_9|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4018|4018_9|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4019|4019_9|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4020|4020_9|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4026|4026_9|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4028|4028_9|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4041|4041_9|./msg/tet_46_msg_initial.json|
+WAIT: 15
+S_MSG_FILE:4002|4002_10|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4004|4004_10|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4005|4005_10|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4007|4007_10|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4011|4011_10|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4018|4018_10|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4019|4019_10|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4020|4020_10|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4026|4026_10|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4028|4028_10|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4041|4041_10|./msg/tet_46_msg_initial.json|
+WAIT: 15
+S_MSG_FILE:4002|4002_11|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4004|4004_11|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4005|4005_11|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4007|4007_11|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4011|4011_11|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4018|4018_11|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4019|4019_11|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4020|4020_11|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4026|4026_11|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4028|4028_11|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4041|4041_11|./msg/tet_46_msg_initial.json|
+WAIT: 15
+S_MSG_FILE:4002|4002_12|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4004|4004_12|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4005|4005_12|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4007|4007_12|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4011|4011_12|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4018|4018_12|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4019|4019_12|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4020|4020_12|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4026|4026_12|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4028|4028_12|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4041|4041_12|./msg/tet_46_msg_initial.json|
+WAIT: 15
+S_MSG_FILE:4002|4002_13|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4004|4004_13|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4005|4005_13|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4007|4007_13|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4011|4011_13|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4018|4018_13|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4019|4019_13|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4020|4020_13|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4026|4026_13|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4028|4028_13|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4041|4041_13|./msg/tet_46_msg_initial.json|
+WAIT: 15
+S_MSG_FILE:4002|4002_14|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4004|4004_14|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4005|4005_14|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4007|4007_14|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4011|4011_14|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4018|4018_14|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4019|4019_14|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4020|4020_14|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4026|4026_14|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4028|4028_14|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4041|4041_14|./msg/tet_46_msg_initial.json|
+WAIT: 15
+S_MSG_FILE:4002|4002_15|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4004|4004_15|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4005|4005_15|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4007|4007_15|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4011|4011_15|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4018|4018_15|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4019|4019_15|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4020|4020_15|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4026|4026_15|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4028|4028_15|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4041|4041_15|./msg/tet_46_msg_initial.json|
+WAIT: 15
+S_MSG_FILE:4002|4002_16|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4004|4004_16|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4005|4005_16|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4007|4007_16|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4011|4011_16|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4018|4018_16|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4019|4019_16|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4020|4020_16|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4026|4026_16|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4028|4028_16|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4041|4041_16|./msg/tet_46_msg_initial.json|
+WAIT: 15
+S_MSG_FILE:4002|4002_17|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4004|4004_17|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4005|4005_17|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4007|4007_17|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4011|4011_17|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4018|4018_17|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4019|4019_17|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4020|4020_17|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4026|4026_17|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4028|4028_17|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4041|4041_17|./msg/tet_46_msg_initial.json|
+WAIT: 15
+S_MSG_FILE:4002|4002_18|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4004|4004_18|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4005|4005_18|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4007|4007_18|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4011|4011_18|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4018|4018_18|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4019|4019_18|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4020|4020_18|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4026|4026_18|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4028|4028_18|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4041|4041_18|./msg/tet_46_msg_initial.json|
+WAIT: 15
+S_MSG_FILE:4002|4002_19|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4004|4004_19|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4005|4005_19|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4007|4007_19|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4011|4011_19|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4018|4018_19|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4019|4019_19|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4020|4020_19|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4026|4026_19|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4028|4028_19|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4041|4041_19|./msg/tet_46_msg_initial.json|
+WAIT: 15
+S_MSG_FILE:4002|4002_20|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4004|4004_20|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4005|4005_20|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4007|4007_20|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4011|4011_20|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4018|4018_20|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4019|4019_20|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4020|4020_20|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4026|4026_20|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4028|4028_20|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4041|4041_20|./msg/tet_46_msg_initial.json|
+WAIT: 15
+S_MSG_FILE:4002|4002_21|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4004|4004_21|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4005|4005_21|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4007|4007_21|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4011|4011_21|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4018|4018_21|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4019|4019_21|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4020|4020_21|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4026|4026_21|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4028|4028_21|./msg/tet_46_msg_initial.json|
+S_MSG_FILE:4041|4041_21|./msg/tet_46_msg_initial.json|
+WAIT: 15
+RESTART:
+
+
+
+
+
+;S_MSG_FILE:4041|4041_1|./msg/tet_46_msg_update.json|
+S_MSG_FILE:4020|4020_1|./msg/tet_46_msg_update.json|
+;S_MSG_FILE:4018|4018_1|./msg/tet_46_msg_update.json|
+;S_MSG_FILE:4026|4026_1|./msg/tet_46_msg_update.json|
+;S_MSG_FILE:4002|4002_1|./msg/tet_46_msg_update.json|
+;S_MSG_FILE:4004|4004_1|./msg/tet_46_msg_update.json|
+;S_MSG_FILE:4005|4005_1|./msg/tet_46_msg_update.json|
+;S_MSG_FILE:4011|4011_1|./msg/tet_46_msg_update.json|
+;S_MSG_FILE:4019|4019_1|./msg/tet_46_msg_update.json|
+;S_MSG_FILE:4028|4028_1|./msg/tet_46_msg_update.json|
+WAIT: 40
+RESTART:
+
 END:
 
 
