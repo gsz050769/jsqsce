@@ -10,16 +10,17 @@ msg_logger: $(objects_logger)
 	gcc -o msg_logger $(objects_logger) jsqlib.a -pthread 
 
 msg_script.o: msg_script.c msg_status.h libjson.h
-	gcc -c msg_script.c
+	gcc -c -g msg_script.c
 
 msg_logger.o: msg_logger.c msg_status.h libjson.h
-	gcc -c msg_logger.c
+	gcc -c -g msg_logger.c
 
 msg_status.o: msg_status.c msg_status.h
-	gcc -c msg_status.c
+	gcc -c -g msg_status.c
 
 clean:
 	rm -rf $(objects)
+	rm -rf $(objects_logger)
 	rm -rf msg_script.tar
 	rm -rf msg_script.tar.gz
 
