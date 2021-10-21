@@ -1,0 +1,63 @@
+{
+    "msgId":"x_set_by_script_x",
+    "payload":{
+        "amsgId":"x_set_by_script_x",
+        "sip_id":"x_set_by_script_x",
+        "msg":{
+            "server_msg_status":"new",
+            "prio":"7",
+            "title":{
+                "text":"Service Req"
+            },
+            "status_icon":"3b",
+            "status_text":"accept",
+            "deletable":"no",
+            "presentation_time":"30",
+            "ttl":"600",
+            "alert_info":"msg_melody_high",
+            "body_starter":"Service Req",
+            "msg_icon":{
+                "value":"3b"
+            },
+            "body":[
+                {
+                    "msg_icon":{
+                        "value":"3b"
+                    }
+                },
+                {
+                    "paragraph":{
+                        "text":"Service request.",
+                        "blink":"no",
+                        "underline":"no",
+                        "bold":"yes",
+                        "align":"left"
+                    }
+                },
+                {
+                    "paragraph":{
+                        "text":"Would You please ....",
+                        "blink":"no",
+                        "underline":"no",
+                        "bold":"yes",
+                        "align":"left"
+                    }
+                }
+            ],
+            "reply_options":[
+                {
+                    "option_id":"option_id_1",
+                    "reply":{
+                        "text":"Yes"
+                    }
+                },
+                {
+                    "option_id":"option_id_2"
+                    ,"reply":{
+                        "text":"No"
+                    }
+                }
+             ]
+        }
+    }
+}
